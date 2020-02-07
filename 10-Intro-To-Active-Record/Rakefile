@@ -1,0 +1,29 @@
+require_relative 'config/environment'
+require 'sinatra/activerecord/rake'
+
+desc "Cheer up"
+task :cheer_up do
+  puts "You can do it, Ann!!"
+end
+
+desc "Loads a console"
+task :console do
+    Pry.start
+end
+
+# desc "Set up database"
+# task :db_setup do
+#     drop_users_table_sql = "DROP TABLE IF EXISTS users;"
+#     DB.execute(drop_users_table_sql)
+#     users_sql = "CREATE TABLE IF NOT EXISTS users(
+#             id INTEGER PRIMARY KEY,
+#             username TEXT
+#         );"
+#     DB.execute(users_sql)
+# end
+#
+# desc "Drop database"
+# task :db_drop do
+#     drop_users_table_sql = "DROP TABLE IF EXISTS users;"
+#     DB.execute(drop_users_table_sql)
+# end

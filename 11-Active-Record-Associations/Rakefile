@@ -1,0 +1,13 @@
+require_relative 'config/environment'
+require 'sinatra/activerecord/rake'
+
+desc "Loads a console"
+task :console do
+    ann = User.first
+    paul = User.last
+    tweet1 = Tweet.first
+    coffee = Drink.find_by(name: "Coffee")
+    water = Drink.find_by(name: "Water")
+    favorite1 = Favorite.first
+    binding.pry
+end
