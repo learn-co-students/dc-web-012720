@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Index Page</title>
+    <link rel="stylesheet" type="text/css" href="/styles.css">
+</head>
+<body>
+
+<h1>All the books</h1>
+
+<ul>
+    <% @books.each do |book| %>
+        <li 
+        <% if book.id % 3 == 0 %>
+            class= <%= "red" %>
+        <% end %>
+        >
+            <a href=<%="/books/#{book.id}"%>
+            <% if book.id % 3 == 0 %>
+                class= <%= "red" %>
+            <% end %>
+            >
+                <%= book.title %>
+            </a>
+                
+        </li>
+    <% end %>
+</ul>
+
+</body>
+</html>
