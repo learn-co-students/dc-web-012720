@@ -4,4 +4,8 @@ class Book < ActiveRecord::Base
 
         return self.author.upcase
     end
+
+    def is_red?
+        return self.id % 3 == 0
+    end
 end

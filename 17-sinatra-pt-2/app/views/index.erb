@@ -8,17 +8,15 @@
 
 <h1>All the books</h1>
 
+<a href="/books/new">Create a new book</a>
+
 <ul>
     <% @books.each do |book| %>
-        <li 
-        <% if book.id % 3 == 0 %>
-            class= <%= "red" %>
-        <% end %>
-        >
+        <li >
             <a href=<%="/books/#{book.id}"%>
-            <% if book.id % 3 == 0 %>
-                class= <%= "red" %>
-            <% end %>
+                <% if book.is_red? %>
+                    class= <%= "red" %>
+                <% end %>
             >
                 <%= book.title %>
             </a>
