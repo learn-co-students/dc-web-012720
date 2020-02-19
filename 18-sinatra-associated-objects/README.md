@@ -15,6 +15,9 @@
 ```text
 Lecture Deliverables:
   As a site visitor, I should be able to see a list of authors
+    - click on an author to go their detail page
+        - bonus: detail page should list all the author's books 
+            - bonus: link to books' detail pages
  
   As a site visitor, I should be able to see a list of books. I should be able to click on each book title to see more information about that book.
 
@@ -25,3 +28,9 @@ For each deliverable discuss
 
 1. Does the Schema need to Change?
 2. What are the necessary route\(s\)?
+
+****
+
+Migrations Needed:
+    - add column to books table
+    - create author table

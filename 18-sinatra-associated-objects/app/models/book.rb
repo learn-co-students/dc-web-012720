@@ -1,8 +1,10 @@
 class Book < ActiveRecord::Base
 
+    belongs_to :author
+
     def author_name_yelled
 
-        return self.author.upcase
+        return self.author.name.upcase
     end
 
     def is_red?
