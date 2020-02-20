@@ -4,7 +4,7 @@ class ApplicationController < Sinatra::Base
     set :method_override, true
 
     get "/" do 
-        erb :homepage
+        erb :index
     end
 
     get "/funtimes/:first_number/:second_number/:third_number" do

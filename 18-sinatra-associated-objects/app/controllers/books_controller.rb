@@ -1,3 +1,6 @@
+
+
+
 class BooksController < Sinatra::Base
 
     set(:views, "app/views/books")
@@ -15,8 +18,8 @@ class BooksController < Sinatra::Base
     end
 
     post "/books" do 
-        author_name = params[:author]
-        author = Author.find_or_create_by(name: author_name)
+        author_id = params[:author]
+        author = Author.find(author_id)
         title = params[:title]
         snippet = params[:snippet]
         book = Book.create(author: author, title: title, snippet: snippet)
@@ -45,6 +48,7 @@ class BooksController < Sinatra::Base
     end
 
     delete "/books/:id" do 
+        binding.pry
         @book = Book.find(params[:id])
         @book.delete 
         redirect "/books"

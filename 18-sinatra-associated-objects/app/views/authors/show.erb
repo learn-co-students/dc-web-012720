@@ -1,0 +1,12 @@
+<h1>Detail Page</h1>
+
+
+<%= @author.name %>
+
+<% @author.books.each do |book| %>
+    <div>
+        <a href="/books/<%= book.id %>">
+            <%= book.title %>
+        </a>
+    </div>
+<% end %>
