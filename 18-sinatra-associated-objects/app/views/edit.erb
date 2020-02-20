@@ -3,7 +3,7 @@
     <form action="/books/<%= @book.id%>" method="POST">
         <input type="hidden" name="_method" value="PUT">
         <label for="title">Title</label>
-        <input name="title" type="text" value="<%= @book.title %>">
+        <input type="text" name="title" value="<%= @book.title %>">
         <label for="author">Author</label>
         <input type="text" name="author" value="<%= @book.author.name %>">
         <label for="snippet">Snippet</label>
