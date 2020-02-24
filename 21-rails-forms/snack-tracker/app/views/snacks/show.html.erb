@@ -5,4 +5,11 @@
 <div>Calories: <%= @snack.calories %></div>
 <div>Deliciousness: <%= @snack.deliciousness %></div>
 
+<%= link_to "Edit this snack", edit_snack_path %>
 <%= link_to "Back To Index Page", snacks_path %>
+
+<%= form_tag(snack_path(@snack), method: :delete) do %>
+  <div>
+    <%= submit_tag 'Delete this snack' %>
+  </div>
+<% end %>
