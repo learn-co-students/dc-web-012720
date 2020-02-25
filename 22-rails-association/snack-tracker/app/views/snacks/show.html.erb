@@ -4,7 +4,7 @@
 
 <div>Calories: <%= @snack.calories %></div>
 <div>Deliciousness: <%= @snack.deliciousness %></div>
-
+<div>Made by <%= @snack.retailer.name %></div>
 <%= link_to "Edit this snack", edit_snack_path %>
 <%= link_to "Back To Index Page", snacks_path %>
 

@@ -11,5 +11,6 @@
     <%= f.label :deliciousness %>
     <%= f.select :deliciousness, (1..10) %>
     </div>
+    <%= f.collection_select(:retailer_id, Retailer.all, :id, :name_plus_date) %>
     <%= f.submit "Snackify" %>
 <% end %>

@@ -1,2 +1,10 @@
-<h1>Retailers#show</h1>
-<p>Find me in app/views/retailers/show.html.erb</p>
+<h1>Detail Page</h1>
+
+<%= @retailer.name %> founded in <%= @retailer.year_established %>
+
+<% if !@retailer.snacks.empty? %>
+    <h2>Snacks</h2>
+    <% @retailer.snacks.each do |snack| %>
+        <div><%= link_to snack.name, snack_path(snack) %></div>
+    <% end %>
+<% end %>

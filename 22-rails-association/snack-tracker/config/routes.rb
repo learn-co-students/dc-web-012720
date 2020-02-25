@@ -7,5 +7,5 @@ Rails.application.routes.draw do
   # # get "/supercoolroute", to: "fake#madeup" 
   # get "/snacks/:id", to: "snacks#show", as: "snack"
   resources :snacks
-  resources :retailers, only: [:index, :show]
+  resources :retailers, only: [:index, :show, :new, :create]
 end

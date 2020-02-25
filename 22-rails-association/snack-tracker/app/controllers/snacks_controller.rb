@@ -1,6 +1,7 @@
 class SnacksController < ApplicationController
 
     before_action :find_snack, only: [:show, :edit, :update, :delete]
+    after_action :log_data, only: [:update, :destroy, :create]
     def home 
     end
 
@@ -50,7 +51,12 @@ class SnacksController < ApplicationController
         @snack = Snack.find(params[:id])
 
     end
+
+    def log_data
+        puts "Some data changed in this way blah blah blah"
+    end
+    
     def snack_params
-        params.require(:snack).permit(:name, :calories, :deliciousness)
+        params.require(:snack).permit(:name, :calories, :deliciousness, :retailer_id)
     end
 end
