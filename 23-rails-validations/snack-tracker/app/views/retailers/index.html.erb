@@ -1,0 +1,6 @@
+<h1>Retailers#index</h1>
+
+<% @retailers.each do |ret| %>
+    <div><%= link_to ret.name, retailer_path(ret) %></div>
+<% end %>
+

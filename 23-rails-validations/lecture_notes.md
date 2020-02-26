@@ -1,132 +1,113 @@
-First talk about `Proc`s.  A `Proc` is a type of "Closure", which is a reusable block of code.  It's basically a tiny function.
+lecture_notes.md
 
-Example:
-
-```rb
-def gen_times(factor)
-  return Proc.new {|n| n*factor }
-end
-
-times3 = gen_times(3)
-times5 = gen_times(5)
-
-times3.call(12)               #=> 36
-times5.call(5)                #=> 25
-times3.call(times5.call(4))   #=> 60
-```
-
-* Why use validations
-    - Users are dumb (show gif)
-
-- Different types of validations.  Model level validations are database-agnostic and use the power of ActiveRecord
-
-* What's important about our snacks?
-    - shouldn't have duplicate info
-
-# snack.rb
-```
-  validates :name, presence: true
-  validates :calories, presence: true
-  validates :deliciousness, presence: true
-```
-  - Snack should have name, calories, deliciousness
-  - Why bother with `deliciousness` if there's no way to _not_ put in a value in the form based on the dropdown?
-      - Answer:  Forms are just one way to add data (console, data migrations, seeds, etc)
-  - Show failure in console (works with new, not with create--validations fire on save, i.e., when it hits the database)
-  - show `snack.errors`; `snack.errors.messages`
-  - `belongs_to` is automatically set to `belongs_to :retailer, optional: false`.  Override this by setting to true
-
-    - Demonstrate behavior in browser and necessity for feedback
-
-#snacks_controller.rb
-```rb
-  def create
-    @snack = Snack.new(accepted_params)
-    if @snack.valid?
-      @snack.save
-      redirect_to snack_path(@snack)
-    else
-      render :new
-    end
-  end
-```
-
-# edit_form.erb
+- `rails new snack-tracker`
+- `cd snack-tracker`
+- `rails g model Snack name calories:integer deliciousness:integer`
+    - Look at what it's built
+        -model
+        -migration
+        -test file
+        -fixtures 
+-`rails db:migrate`
+    - show schema
+        - null: false
+        - point out `created_at`, `updated_at`
+- build some seed data
+- Review RESTful routes (index, show, edit, create, new, update, destroy)
+- in config/routes.rb:
+    -`  resources :snacks, only: [:index]`
+- Build a controller
+- `rails g controller Snacks index`
+    - Build this in the wrong directory and show the `rails destroy controller Snacks` command
+- app/controller/snacks_controller.rb
 
 ```rb
-<% if @snack.errors %>
-    <ul class="error_list">
-    <% @snack.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-    <% end %>
-    </ul>
-<% end %>
-```
+class SnacksController < ApplicationController
 
-  - can show inline styling and stylesheets
-  - bad fields get turned into `field_with_errors`
-
-```
-.field_with_errors {
-    color: red;
-    display: inline;
-}
-
-.error_list li {
-    color: red;
-}
-```
-
-
-# retailer.rb
-
-```rb
-class Retailer < ApplicationRecord
-    has_many :snacks
-    accepts_nested_attributes_for :snacks, reject_if: Proc.new { |attributes| attributes[:name].blank? }
-
-    validates :name, presence: true, uniqueness: true
-    validates :year_established, presence: true
-    validate :year_established_must_be_valid,
-        unless: Proc.new {|a| a.year_established.blank?}
-
-    def year_established_must_be_valid
-        if !(self.year_established > 1800 && self.year_established <= Date.today.year)
-            errors.add(:year_established, "must be between 1800 and #{Date.today.year}")
+        def index
+            @snacks = Snack.all
+            
         end
-    end
 
 end
 ```
 
-# retailer_controller.rb
-```rb
-  def create
-    @retailer = Retailer.create(strong_params)
-    if @retailer.errors
-      @retailer.snacks.build
-      render :new
-    else
-      redirect_to retailer_path(retailer)
-    end
-  end
-```
+- Build the view in the snacks folder
+    - Point out extension `.html.erb`
+- Go to localhost:3000/index, which is wrong.  Show `rails routes`
+    - localhost:3000/snacks
 
-# Use partials!
+- add show route, controller, view.  Will work without restarting.  App folder can change without restart; routes need restart (but I guess not if just changing the only?)
+    - show traditional way of building links, then show `rails routes` again as well as go into `rails c` and show the `app.snacks_path` and other routes
+    - `<%= link_to snack.name, snack_path(snack) %>`
+    - add some css somewhere on the page to introduce
+        - external stylesheets
+        - classes and ids
+        - basic css syntax
 
-`shared/_errors.html.erb` **Note the underscore--it's actually important**
-
-```rb
-<% if new_object.errors %>
-    <ul class="error_list">
-    <% new_object.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-    <% end %>
-    </ul>
+- add `:new :create`
+    - `@snack = Snack.new`
+    - new.html.erb
+    - **`form_for` vs `form_tag`**
+        -`form_for` represents an ActiveRecord model
+        -`form_tag` doesn't, and should be used for custom forms
+        - both include csrf validation.  Before defining fields, show the form (with all hidden fields) in the inspector
+        - `form_for`s is a bit easier to use for creating forms for a model object because it figures out what url to use and what http method to use depending on whether the object is a new record or a saved record.
+        - Rails 5 will replace both of these with `form_with`
+        
+```html
+<h1>New Snack:</h1>
+<%= form_for @snack do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    <%= f.label :calories %>
+    <%= f.number_field :calories %>
+    <%= f.label :deliciousness %>
+    <%= f.select :deliciousness, (1..10) %>
+    <%= f.submit "Snackify" %>
 <% end %>
 ```
 
-form pages:
+- put byebug in Create
+- Show params
+- Show `Snack.create(params)` and `Snack.create(params[:snack])` give same error.
+    - Security risk
+        - Mass assignment, can put in bad code
 ```rb
-<%= render partial: "shared/errors", locals: {new_object: @retailer} %>
+    def create
+        @snack = Snack.create(params.require(:snack).permit(:name, :deliciousness, :calories))
+        redirect_to @snack
+    end
+```
+
+- add :update and :edit to routes
+- edit.html.erb matches new.html.erb
+    - move form into `_snack_form.html.erb`
+    - `<%= render "snack_form" %>`
+- add link from detail page to edit page
+    - `<%= link_to "Edit", edit_snack_url(@snack) %>`
+- add link on index page to show page
+    - `<%= link_to snack.name, snack_url(snack) %>`
+- SnackController#update matches create.  Move `allowed_params` into private method
+- Destroy method
+    - can remove `only:` now since we're doing them all
+- add form_tag (custom form so not form_for) to edit page
+
+```rb
+    <%= link_to 'Destroy this snack', snack_path(@snack),
+            data: {:confirm => 'Are you sure?'}, :method => :delete %>
+```
+
+```rb
+    def destroy
+        Snack.destroy(params[:id])
+        redirect_to snacks_path
+    end
+```
+
+- `before_action :find_snack, only: [:edit, :update, :show]`
+```rb
+def find_snack
+        @snack = snack.find(params[:id])
+    end
 ```
