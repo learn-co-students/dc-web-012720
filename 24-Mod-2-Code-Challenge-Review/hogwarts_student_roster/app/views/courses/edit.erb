@@ -1,0 +1,16 @@
+<h1>Edit <%= @course.name %></h1>
+
+<%= form_for @course do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    <br>
+    <%= f.label :description %>
+    <%= f.text_field :description %>
+    <br>
+    <%= f.label :students %>
+    <br>
+    <br>
+    <%= f.collection_check_boxes :student_ids, Student.all, :id, :name %>
+    <br>
+    <%= f.submit %>
+<% end %>

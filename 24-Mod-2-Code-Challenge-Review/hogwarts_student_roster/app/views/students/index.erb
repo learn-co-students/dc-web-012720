@@ -1,0 +1,7 @@
+<h1>Hogwarts Student Roster</h1>
+
+<ul>
+    <% @students.each do |s| %>
+        <li><%= link_to s.name, student_path(s) %></li>
+    <% end %>
+</ul>
