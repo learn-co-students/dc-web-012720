@@ -1,0 +1,12 @@
+<h1>Student Detail Page</h1>
+
+<h3><%= @student.name %></h3>
+
+<h3>Grade level: <%= @student.grade %></h3>
+
+<h3>Courses:</h3>
+
+<% @student.courses.each do |c| %>
+    <%= link_to c.name, course_path(c) %>
+    <br>
+<% end %>

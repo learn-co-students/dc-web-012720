@@ -1,0 +1,10 @@
+<h1>Course Detail Page</h1>
+
+<h3><%= @course.name %></h3>
+
+<h3><%= @course.description %></h3>
+
+<% @course.students.each do  |s| %>
+    <%=  s.name %>
+    <br>
+<% end %>
