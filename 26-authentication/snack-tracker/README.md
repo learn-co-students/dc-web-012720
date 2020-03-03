@@ -1,0 +1,3 @@
+- Add bcrypt gem
+- add password_digest to table (through migration)
+- add `has_secure_password` to User model
