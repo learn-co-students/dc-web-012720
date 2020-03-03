@@ -1,0 +1,7 @@
+<h1>Home Page</h1>
+
+<h2>Welcome to our Snack App</h2>
+
+<a href="/snacks">Snack Index Page</a> <%# bad hardcoded %>
+
+<%= link_to("Snack Index Page", snacks_path) %> <%# using prefix == good %>
