@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <% @images.each do |image| %>
+        <img src="<%= image.url %>">
+        <h5><%= image.name %></h5>
+    <% end %>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="<%= image.url %>" alt="Card image cap">
+        <div class="card-body">
+            <h5 class="card-title"><%= image.name %></h5>
+            <a href="<%=  %>" class="btn btn-primary">Go somewhere</a>
+            
+        </div>
+    </div> -->

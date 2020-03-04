@@ -1,0 +1,302 @@
+
+
+/*******************************************
+        photo home page
+********************************************/
+
+.home-box {
+    height: 300px;
+    background: url("https://perezdiego2092.files.wordpress.com/2013/04/allthemedia.jpg");
+    background-size: cover;
+    background-position: bottom;
+    background: linear-gradient( rgba(250, 170, 170, 0.9), rgba(95, 93, 93, 0.9) ), url("https://cdn.wallpapersafari.com/46/60/51ZtRd.jpg");
+    position: relative;
+}
+
+.center-text {
+   text-align: center;
+}
+
+.home-box h1 {
+   color: white;
+}
+
+.home-text {
+   position: absolute;
+   left: 100px;
+   top: 50px;
+   /* background-color: black; */
+}
+
+/*************************************************
+        infox home box
+***************************************************/
+
+/* #move-box {
+   margin-top: 30px;
+} */
+
+.info-box {
+   /* margin-top: 30px !important; */
+}
+
+.ui.grid.info-box {
+   margin-top: 30px;
+}
+
+.icon {
+   font-size: 30px !important;
+}
+
+.parent-div {
+   width: 400px;
+   height: 300px;
+   padding: 50px 0px 0px 10px;
+   margin-left: 30px;
+}
+
+.child-div {
+   width: 100px;
+   border: green solid 2px;
+   height: 100px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* .main {
+    padding: 30px;
+    height: 550px;
+    border-top: 1px solid;
+    background: linear-gradient( rgba(95, 93, 93, 0.6), rgba(95, 93, 93, 0.6) ), url("https://cdn.wallpapersafari.com/46/60/51ZtRd.jpg");
+    background-repeat: none;
+    background-size: cover;
+    background-position: center;
+    text-shadow: 0 2px 4px rgba(41,48,59,0.55);
+}
+
+.main-headline {
+    width: 750px;
+    margin-left: 70px;
+    margin-top: 50px;
+    height: 450px;
+    padding-left: 15px;
+}
+
+h1 {
+    font-size: 70px;
+    line-height: 75px;
+    letter-spacing: 2px;
+    margin-top: 30px;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+}
+
+
+
+#lg-btn {
+    margin-top: 30px;
+    margin-left: 30px;
+    display: inline-block;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 40px;
+    padding: 10px
+}
+     
+.main-heading h1 {
+    text-align: center;
+}
+
+.category {
+    text-align: center;
+    display: flex;
+    justify-content: space-around;
+    align-content: center;
+    
+    margin: 0px auto;
+}
+
+.box {
+    padding-left: 130px;
+    padding-right: 130px; 
+    text-align: center;
+    padding-top: 50px !important;
+    padding-bottom: 50px !important;
+}
+
+.box p {
+    font-size: 23px;
+}
+        
+i {
+    font-size: 60px;
+    color: rgb(247, 240, 240);
+}
+
+.icon-box {
+    margin-bottom: 20px;
+}
+
+.box-phrase {
+    padding-top: 20px;
+}
+
+h3 {
+    font-size: 20px;
+    font-family: 'Montserrat', sans-serif;
+} 
+
+
+.blue-wrapper {
+    background-color: teal;
+    color: white;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+  }
+
+  .image-box {
+      border: solid;
+      height: 400px;
+      width: 400px;
+      background: url("https://i.pinimg.com/564x/5b/43/1e/5b431e08dd23a694cd7ad4e6f29b474c.jpg");
+      background-repeat: none;
+      background-size: cover;
+    }
+
+    .login-box {
+        margin-top: 5%;
+    }
+
+    #form-image {
+        display: flex;
+        justify-content: center;
+    }
+
+    #form-image-2 {
+        display: flex;
+        justify-content: center;
+        flex-flow: wrap;
+    }
+
+    .login-box h2 {
+  
+    }
+
+    #login-form {
+        width: 70%;
+         margin-top: -20%;
+    }
+
+
+
+    .card-photo {
+        position: relative;
+       
+    }
+
+    .card-photo img {
+        width: 100%;
+       
+    }
+
+    .clearfix::after {
+        content: "";
+        clear: both;
+        display: table;
+      }
+
+    .card-meme {
+        width: 400px;
+        height: 400px;
+       
+}
+
+    .one {
+        position: absolute;
+        top: 30px;
+        color: white;
+        left: 30%;
+        font-size: 20px;
+    }
+
+    .two {
+        position: absolute;
+        bottom: 10%;
+        color: white;
+        text-align: center;
+        left: 30%;
+        font-size: 20px;
+    }
+
+  */
