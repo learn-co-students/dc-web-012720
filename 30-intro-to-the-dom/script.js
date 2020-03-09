@@ -30,14 +30,15 @@ function createRow(firstName, lastName, email) {
 	email.className = "email"
 	newRow.appendChild(emailTd)
 
-	// let fakeTd = document.createElement('td')
-	// fakeTd.innerText = "fake"
-	// email.className = "fake"
-	// newRow.appendChild(fakeTd)
+	newRow.id = makeRowId()
+
 	return newRow
 
 }
 
 function makeRowId() {
-	
+	let count = document.querySelectorAll('tbody > tr').length
+	count++
+	let newId = `row-${count}`
+	return newId
 }
