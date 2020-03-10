@@ -1,6 +1,5 @@
 document.addEventListener("DOMContentLoaded", pageSetup)
 
-
 function pageSetup() {
     document.querySelectorAll(".email").forEach(
         node => node.addEventListener(
