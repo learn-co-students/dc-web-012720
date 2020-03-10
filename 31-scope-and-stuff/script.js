@@ -1,18 +1,22 @@
+// function declaration
 
-function favoriteTeacher() {
-    teacher = "Snape"
-    if (teacher) {
-        console.log(`My favorite professor is ${teacher}`)
-    } else {
-        console.log("I haven't chosen a favorite!")
-    }
+debugger
+function sayHello() {
+    console.log("hello world")
+}
+
+// function expression
+
+let funcExp = function() {
+    console.log(
+        "Hello from a function expression")
 }
 
 
-function something() {
-    if (teacher) {
-        console.log(`My favorite professor is ${teacher}`)
-    } else {
-        console.log("I haven't chosen a favorite!")
-    }
+function sayGoodbye() {
+    console.log("goodbye")
 }
+
+// arrow functions
+
+let addOneToNumber = num => num + 1
