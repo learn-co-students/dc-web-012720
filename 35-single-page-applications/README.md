@@ -25,7 +25,14 @@ body: JSON.stringify({
 
 ### Building out the frontend (Deliverables)
 
+    - As a User, I can see a list of all the Pokemon
+        - When page loads, I want to make a GET fetch to "/pokemon", and manipulate the DOM by rendering all the Pokemon
+    - As a User, I can add a Pokemon by submitting a form
+        - When the form is submitted, I want to make a POST fetch to "/pokemon", and manipulate the DOM by adding the new Pokemon card
+    - As a User, I can click a Pokemon and delete it
+        - When we click a card, I want to make a DELETE fetch call to "/pokemon/{id}" , and manipulate the DOM by removing the card
 
 ### Notes:
 - [Documentation of using Fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch)
 - `body` of a fetch HAS to be a string!!
+

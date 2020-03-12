@@ -4,14 +4,14 @@ font-weight: 300;
 }
 
 #container {
-  width:1000px;
-  margin:auto;
-  margin-top:50px;
+  width: 1000px;
+  margin: auto;
+  margin-top: 50px;
 }
 
 #pokemon-logo {
-  width:300px;
-  margin-left:330px;
+  width: 300px;
+  margin-left: 330px;
 }
 
 input:focus {
@@ -26,7 +26,7 @@ form {
   margin:auto;
   float:left;
   text-align: center;
-  width:190px;
+  width: 190px;
   border: solid 1px;
 }
 
