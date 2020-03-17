@@ -22,6 +22,9 @@
 
 ### CORS
 - Cross Origin Resource Sharing
+    - uncomment `rack-cors` gem in Gemfile (bundle)
+    - uncomment `cors.rb`
+    - change origin from `example.com` to `*` (dev only, restart server)
 
 ### Serializers
 - Decide how we want to format our data
