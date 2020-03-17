@@ -24,6 +24,27 @@ function renderCat(cat) {
     </div>
   </div>
   `
+  let extraContent = catDiv.querySelector(".extra.content")
+  cat.hobbies.forEach(hobby => {
+    let hobbyLi = document.createElement('li')
+    hobbyLi.innerText = hobby.name 
+    extraContent.appendChild(hobbyLi)
+  })
 
+}
 
+function processForm(event) {
+    event.preventDefault()
+    let catName = event.target.name.value
+    let catBreed = event.target.breed.value
+    let catImage = event.target.image.value
+    let payload = {name: catName, breed: catBreed, image: catImage}
+
+    fetch("http://localhost:3000/cats", {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify(payload)
+    }).then(r => r.json())
+    .then(cat => renderCat(cat))
+    event.target.reset()
 }

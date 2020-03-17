@@ -11,7 +11,7 @@ ella = Cat.create(name: "Ella",
                   image: "https://i.imgur.com/YksIEqY.jpg")
 
 
-tyrion = Cat.create(name: "Tyrion",
+tigger = Cat.create(name: "Tigger",
                     breed: "tabby",
                     image: "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/44421119/1/?bust=1554820232&width=720")
 
@@ -20,5 +20,5 @@ pushing = Hobby.create(name: "Pushing things", description: "Knocking stuff off 
 napping = Hobby.create(name: "Napping", description: "everyone needs a nap")
 
 ella.hobbies << napping 
-tyrion.hobbies << napping
-tyrion.hobbies << pushing
+tigger.hobbies << napping
+tigger.hobbies << pushing
