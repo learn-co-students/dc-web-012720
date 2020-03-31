@@ -8,6 +8,7 @@
 - The 'how' is abstracted
 
 ### Component Hierarchy
+```
 App
 	|- Navbar
 	|- PaintingDetails
@@ -15,12 +16,15 @@ App
 	 			|- Painting
 					 ...
 
+```
 ### Component Tree
+```
 		 Appppppppppppppppp (*function*)
 	 	/       |          \
-Navbar  PaintingDetails PaintingsContainer
-		 						      			/   \
-								    	Painting   Painting
+          Navbar  PaintingDetails PaintingsContainer
+		 		         /   \
+		        	Painting   Painting
+```
 
 This app is going to need a state of  activePainting
 # PaintingDetails needs to 'read' the state of activePainting
