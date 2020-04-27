@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+<style>
+:root{
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+*,
+::before,
+::after {
+  box-sizing: inherit;
+}
+
+body{ 
+  background-color: firebrick;
+  margin: 0;
+  }
+.container {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+p {
+  display: inline-block;
+  padding: 1.5em;
+  width:50%;
+  background-color: yellow;
+
+}
+/* .second {
+  margin-bottom: 2em;
+}
+p + p{
+  background-color: green;
+  margin-top: 1em;
+}
+
+p{
+  margin: 0;
+} */
+
+</style>
+
+</head>
+<body>
+  <div class="container">
+    <h1>Basic document flow</h1>
+
+    <p class="second first" >I am a basic block level element. My adjacent block level elements sit on new lines below me.</p><!-- 
+     --><p>By default we span 100% of the width of our parent element, and we are as tall as our child content. Our total width
+      and height is our content + padding + border width/height.</p><!-- 
+      --> <p id="second-p">We are separated by our margins. Because of margin collapsing, we are separated by the width of one of our margins,
+      not both.</p><!-- 
+      --><p>inline elements <span>like this one</span> and <span>this one</span> sit on the same line as one another, and
+      adjacent text nodes, if there is space on the same line. Overflowing inline elements will <span>wrap onto a new line
+        if possible (like this one containing text)</span>, or just go on to a new line if not, much like this image will
+      do: <img src="https://mdn.mozillademos.org/files/13360/long.jpg"></p>
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,151 @@
+:root {
+  box-sizing: border-box;
+  font-size: calc(.4em + 1vw)
+}
+
+*,
+::before, 
+::after {
+  box-sizing: inherit;
+}
+
+
+body {
+  background-color: teal;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body * + * {
+  margin-top: 1.5em;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.site-nav {
+  display: flex;
+  padding: .5em;
+  list-style-type: none;
+  background-color: burlywood;
+}
+
+.site-nav > li {
+  margin-top: 0;
+}
+
+.site-nav > li > a {
+  background-color: chocolate;
+  color: whitesmoke;
+  text-decoration: none;
+  border-radius: .1em;
+  padding: .5em 1em;
+  display: block
+}
+
+.site-nav > li + li{
+  margin-left: 1.5em;
+}
+
+.site-nav > .nav-right {
+  margin-left: auto;
+}
+
+.tile {
+  background-color: whitesmoke;
+  padding: 1.5em;
+}
+.flex {
+  display: flex;
+}
+
+.flex > * + * {
+  margin-top: 0;
+  margin-left: 1.5em
+}
+
+.column-main {
+  flex: 2;
+}
+
+.column-sidebar {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.column-sidebar > .tile {
+  flex: 1;
+}
+
+.login-form h3 {
+  margin: 0;
+  font-size: .9em;
+  font-weight: bold;
+  text-align: right;
+  text-transform: uppercase;
+}
+
+.login-form input:not([type=checkbox]):not([type=radio]) {
+  display: block;
+  width: 100%;
+  margin-top: 0;
+  font-size: 1.2em;
+}
+
+.login-form button {
+  border: 1px solid chocolate;
+  background-color: white;
+  padding: .5em 1em;
+  cursor: pointer;
+}
+
+.centered {
+  text-align: center;
+}
+
+.cost {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.cost > span {
+  margin-top: 0;
+}
+
+.cost-currency {
+  font-size: 2rem;
+}
+
+.cost-dollars {
+  font-size: 4rem;
+}
+
+.cost-cents {
+  font-size: 1.5rem;
+  align-self: flex-start;
+}
+
+.cta-button {
+  display: block;
+  background-color: chocolate;
+  color: whitesmoke;
+  padding: 1em 1.5em;
+  text-decoration: none;
+}
+
+.cta-button:hover {
+  animation: jiggle .5s infinite linear;
+}
+@keyframes jiggle {
+  /* start at 0deg and this scale size.
+     scale size is repeated here to maintain smooth scaling */
+  0% {transform: rotate(0deg) scale(1.15,1.15);}
+  /* midway rotate 2deg right */
+  50% {transform: rotate(2deg) scale(1.15,1.15);}
+  /* end rotate -2deg left */
+  100% {transform: rotate(-2deg) scale(1.15,1.15)}
+}
